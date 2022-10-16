@@ -24,6 +24,7 @@ public class MachineRepository {
     public Machine save(Machine m){
         return machineCrudRepository.save(m);
     }
+    public void delete(Machine m){machineCrudRepository.delete(m);}
 
 }
 

@@ -39,6 +39,30 @@ public class MessageService {
             }
         }
     }
+    public Message update(Message mess){
+        if(mess.getIdMessage()!=null){
+            Optional<Message> old= messageRepository.getMessage(mess.getIdMessage());
+            if(old.isPresent()){
+                Message k=old.get();
+
+                if(mess.getMessageText()!=null){
+                    k.setMessageText(mess.getMessageText());
+                }
+
+                return messageRepository.save(k);
+            }
+        }
+        return mess;
+    }
+
+    public boolean delete(int id) {
+        Optional<Message> cp = messageRepository.getMessage(id);
+        if (cp.isPresent()) {
+            messageRepository.delete(cp.get());
+            return true;
+        }
+        return false;
+    }
 }
 
 

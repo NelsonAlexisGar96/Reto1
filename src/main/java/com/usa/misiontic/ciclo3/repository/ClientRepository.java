@@ -27,5 +27,8 @@ public class ClientRepository {
     public Client save(Client l){
         return clientCrudRepository.save(l);
     }
+    public void delete(Client l){
+        clientCrudRepository.delete(l);
+    }
 
 }
